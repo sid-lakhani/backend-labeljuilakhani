@@ -419,10 +419,14 @@ export interface ApiCollectionCollection extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.RichText;
+    featureImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     Images: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
+    isFeatured: Schema.Attribute.Boolean;
     isLive: Schema.Attribute.Boolean;
     launchDate: Schema.Attribute.Date;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

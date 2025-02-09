@@ -12,17 +12,33 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "Title": {
       "type": "string"
     },
     "isLive": {
       "type": "boolean"
     },
-    "url": {
-      "type": "text"
+    "CoverImageLookbook": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     },
-    "description": {
-      "type": "richtext"
+    "HomePageIfLive": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     },
     "Images": {
       "type": "media",
@@ -35,27 +51,8 @@
         "audios"
       ]
     },
-    "launchDate": {
-      "type": "date"
-    },
-    "products": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::product.product",
-      "mappedBy": "collections"
-    },
-    "isFeatured": {
-      "type": "boolean"
-    },
-    "featureImage": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false
+    "Description": {
+      "type": "text"
     }
   }
 }

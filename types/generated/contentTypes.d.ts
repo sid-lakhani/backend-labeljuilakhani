@@ -381,11 +381,15 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    content: Schema.Attribute.RichText;
+    BlogContent: Schema.Attribute.RichText;
+    BlogDate: Schema.Attribute.Date;
+    coverImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    images: Schema.Attribute.Media<
+    Images: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
@@ -393,10 +397,9 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'> &
       Schema.Attribute.Private;
-    postDate: Schema.Attribute.Date;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'title'>;
-    title: Schema.Attribute.String;
+    shortDescription: Schema.Attribute.Text;
+    Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -415,33 +418,32 @@ export interface ApiCollectionCollection extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    CoverImageLookbook: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.RichText;
-    featureImage: Schema.Attribute.Media<
+    Description: Schema.Attribute.Text;
+    HomePageIfLive: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
     Images: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
-    isFeatured: Schema.Attribute.Boolean;
     isLive: Schema.Attribute.Boolean;
-    launchDate: Schema.Attribute.Date;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::collection.collection'
     > &
       Schema.Attribute.Private;
-    name: Schema.Attribute.String;
-    products: Schema.Attribute.Relation<'manyToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url: Schema.Attribute.Text;
   };
 }
 
@@ -457,10 +459,6 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    collections: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::collection.collection'
-    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -474,8 +472,9 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       'api::product.product'
     > &
       Schema.Attribute.Private;
-    name: Schema.Attribute.String;
+    Name: Schema.Attribute.String;
     price: Schema.Attribute.BigInteger;
+    productData: Schema.Attribute.JSON;
     publishedAt: Schema.Attribute.DateTime;
     stockStatus: Schema.Attribute.Boolean;
     updatedAt: Schema.Attribute.DateTime;

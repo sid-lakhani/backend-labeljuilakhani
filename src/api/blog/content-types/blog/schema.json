@@ -12,32 +12,40 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "Title": {
       "type": "string"
     },
     "isFeatured": {
       "type": "boolean"
     },
-    "content": {
-      "type": "richtext"
-    },
-    "images": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
+    "coverImage": {
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ]
+      ],
+      "type": "media",
+      "multiple": false
     },
-    "postDate": {
+    "Images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "shortDescription": {
+      "type": "text"
+    },
+    "BlogContent": {
+      "type": "richtext"
+    },
+    "BlogDate": {
       "type": "date"
-    },
-    "slug": {
-      "type": "uid",
-      "targetField": "title"
     }
   }
 }

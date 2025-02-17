@@ -19,24 +19,26 @@
       "type": "boolean"
     },
     "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
-    "Images": {
+    "headImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "shortDescription": {
       "type": "text"
@@ -44,8 +46,12 @@
     "BlogContent": {
       "type": "richtext"
     },
+    "slugUrl": {
+      "type": "uid",
+      "targetField": "Title"
+    },
     "BlogDate": {
-      "type": "date"
+      "type": "string"
     }
   }
 }

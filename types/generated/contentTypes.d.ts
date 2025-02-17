@@ -382,23 +382,21 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   };
   attributes: {
     BlogContent: Schema.Attribute.RichText;
-    BlogDate: Schema.Attribute.Date;
+    BlogDate: Schema.Attribute.String;
     coverImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Images: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    headImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     isFeatured: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     shortDescription: Schema.Attribute.Text;
+    slugUrl: Schema.Attribute.UID<'Title'>;
     Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

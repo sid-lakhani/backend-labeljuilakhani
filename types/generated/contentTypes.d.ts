@@ -422,11 +422,10 @@ export interface ApiCollectionCollection extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Date: Schema.Attribute.String;
     Description: Schema.Attribute.Text;
+    HomeImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     HomePageContactIfLive: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    HomePageIfLive: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
     Images: Schema.Attribute.Media<

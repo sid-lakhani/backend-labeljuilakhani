@@ -18,7 +18,7 @@
     "isLive": {
       "type": "boolean"
     },
-    "CoverImageLookbook": {
+    "CoverImageLookbookIfLive": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -53,6 +53,20 @@
     },
     "Description": {
       "type": "text"
+    },
+    "titleSlugUrl": {
+      "type": "uid",
+      "targetField": "Title"
+    },
+    "HomePageContactIfLive": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

@@ -416,13 +416,16 @@ export interface ApiCollectionCollection extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    CoverImageLookbook: Schema.Attribute.Media<
+    CoverImageLookbookIfLive: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Description: Schema.Attribute.Text;
+    HomePageContactIfLive: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     HomePageIfLive: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
@@ -439,6 +442,7 @@ export interface ApiCollectionCollection extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     Title: Schema.Attribute.String;
+    titleSlugUrl: Schema.Attribute.UID<'Title'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
